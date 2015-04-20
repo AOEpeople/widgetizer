@@ -1,6 +1,6 @@
 var AOEWidgetizer = AOEWidgetizer || {};
 
-AOEWidgetizer.XhrRequest = function() {
+AOEWidgetizer.XHRRequest = function() {
     return {
         getWidgetJSON: function(requestUri) {
             //@TODO: Think about the qwest bonus feature to limit requests via qwest.limit(4); If such things

@@ -14,7 +14,8 @@ var paths = {};
     paths.test    = paths.src + '/spec';
     paths.libs    = './bower_components';
     paths.orderedLibsList = [
-        paths.libs + '/qwest/qwest.min.js'
+        paths.libs + '/qwest/qwest.min.js',
+        paths.libs + '/markup.js/src/markup.min.js'
     ];
     paths.orderedScriptList = [
         paths.src + '/js/Widgetizer/config.js',
@@ -23,6 +24,8 @@ var paths = {};
         paths.src + '/js/Widgetizer/Widget.js',
         paths.src + '/js/Widgetizer/WidgetSelect.js',
         paths.src + '/js/Widgetizer/XhrRequest.js',
+        paths.src + '/js/Widgetizer/JSON2Markup.js',
+        paths.src + '/js/Widgetizer/TemplateProvider.js',
         paths.src + '/js/Widgetizer.js'
     ];
 
@@ -36,7 +39,7 @@ gulp.task('js', ['jasmine', 'clean'], function() {
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(jshint.reporter('fail'))
         .pipe(addsrc.prepend(paths.orderedLibsList))
-        .pipe(concat('widgetizer_standalone.js'))
+        .pipe(concat('widgetizer_standalone.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest(paths.dist))
         .pipe(jsdoc(paths.doc))

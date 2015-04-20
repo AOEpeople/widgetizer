@@ -1,8 +1,8 @@
-describe("AOEWidgetizer.WidgetSelect", function () {
+describe("AOEWidgetizer.XHRRequest", function () {
     var xhrRequester;
 
     beforeEach(function() {
-        xhrRequester = new AOEWidgetizer.XhrRequest();
+        xhrRequester = new AOEWidgetizer.XHRRequest();
     });
 
     it('can make a request and get a valid json', function(done) {

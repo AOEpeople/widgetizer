@@ -4,33 +4,50 @@ AOEWidgetizer.RequestUrlBuilder = function() {
     var uris    = [];
 
     buildWidgetUris = function(widgets) {
-        for (var i = 0; i < widgets.length; i++) {
-            var currentWidget = widgets[i];
-            var uri = AOEWidgetizer.config.widgetEndpoint;
+        //@TODO: Extract to Widget class?
+        function getWidgetId(currentWidget) {
+            var widgetId = parseInt(currentWidget.getAttribute(AOEWidgetizer.config.widgetSelector.replace('[', '').replace(']', '')));
+            if (!isNaN(widgetId)) {
+                return widgetId;
+            }
+            return '';
+        }
 
-            // add widget ids
-            var widgetId       = currentWidget.getAttribute(AOEWidgetizer.config.widgetSelector.replace('[', '').replace(']', ''));
-            uri += widgetId;
-
-            // add parameters
-            var parametersJSON = currentWidget.getAttribute(AOEWidgetizer.config.parametersAttribute);
-            var parameters     = JSON.parse(parametersJSON);
+        function getParameters(currentWidget) {
+            var parametersJSON  = currentWidget.getAttribute(AOEWidgetizer.config.parametersAttribute);
+            var parameters      = JSON.parse(parametersJSON);
+            var parameterString = '';
 
             //@TODO: Write super small library
             var firstRun = true;
             for (var parameterName in parameters) {
                 if (firstRun) {
-                    uri += '?' + parameterName + '=' + parameters[parameterName];
+                    parameterString += '?' + parameterName + '=' + parameters[parameterName];
                 } else {
-                    uri += '&' + parameterName + '=' + parameters[parameterName];
+                    parameterString += '&' + parameterName + '=' + parameters[parameterName];
                 }
                 firstRun = false;
             }
+
+            return parameterString;
             //@ENDTODO
+        }
 
-            //var configurationJSON = currentWidget.getAttribute(AOEWidgetizer.configurationAttribute);
+        function requestUriIsBaseUri() {
+            //@TODO: Check if widget id has been added, just because the uri changed does not mean it has an id
+            return uri === AOEWidgetizer.config.widgetEndpoint;
+        }
 
-            uris.push(uri);
+        for (var i = 0; i < widgets.length; i++) {
+            var currentWidget = widgets[i];
+            var uri = AOEWidgetizer.config.widgetEndpoint;
+
+            uri += getWidgetId(currentWidget);
+            uri += getParameters(currentWidget);
+
+            if (!requestUriIsBaseUri(uri)) {
+                uris.push(uri);
+            }
         }
 
         return uris;

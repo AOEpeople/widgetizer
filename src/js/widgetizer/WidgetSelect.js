@@ -12,6 +12,7 @@ AOEWidgetizer.WidgetSelect = function() {
         // should even work in IE8 (http://caniuse.com/#search=querySelectorAll)
         widgets = document.querySelectorAll(AOEWidgetizer.config.widgetSelector);
 
+        //@TODO: We might need to mark the divs with UUIDs as the widget id is not unique
         return widgets;
     };
 
