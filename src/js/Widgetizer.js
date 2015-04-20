@@ -7,26 +7,24 @@ AOEWidgetizer.Widgetizer = function() {
     var json2markup         = new AOEWidgetizer.JSON2Markup();
     var renderer            = new AOEWidgetizer.TemplateRenderer();
     var configCheck         = new AOEWidgetizer.ConfigCheck();
-    var widgetTemplate      = new AOEWidgetizer.Template();
+    var templateProvider    = new AOEWidgetizer.TemplateProvider();
 
     init = function() {
-        var widgets = [],
-            requestUrls = [];
-
         if (!configCheck.checkConfig()) {
             return;
         }
 
-        widgets     = widgetSelect.getWidgets();
-        requestUrls = requestUrlBuilder.getUrisForWidgets(widgets);
+        var widgets     = widgetSelect.getWidgets() || [];
+        var requestUrls = requestUrlBuilder.getUrisForWidgets(widgets) || [];
 
         /* jshint ignore:start */
         // now for the async part
         for (var i = 0; i < requestUrls; i++) {
             xhrRequester.getWidgetJSON(requestUrl)
-                .then(function(widgetJSON) {
-                    var widgetMarkup = json2markup.getMarkup(widgetJSON);
-                    renderer.renderWidget(widgetMarkup, widgetTemplate);
+                .then(function(response) {
+                    var widgetJSON   = JSON.parse(response);
+                    var widgetMarkup = json2markup.getMarkup(widgetJSON, templateProvider.getTemplate());
+                    renderer.renderWidget(widgetMarkup);
                 })
                 // catch is ie8 reserved keyword, thus need array notation
                 ['catch'](function(e) {
