@@ -33,24 +33,17 @@ AOEWidgetizer.RequestUrlBuilder = function() {
             //@ENDTODO
         }
 
-        function requestUriIsBaseUri() {
-            //@TODO: Check if widget id has been added, just because the uri changed does not mean it has an id
-            return uri === AOEWidgetizer.config.widgetEndpoint;
-        }
-
         for (var i = 0; i < widgets.length; i++) {
             var currentWidget = widgets[i];
             var uri = AOEWidgetizer.config.widgetEndpoint;
 
-            uri += getWidgetId(currentWidget);
-            uri += getParameters(currentWidget);
+            uri += getWidgetId(currentWidget.node);
+            uri += getParameters(currentWidget.node);
 
-            if (!requestUriIsBaseUri(uri)) {
-                uris.push(uri);
-            }
+            currentWidget.endpoint = uri;
         }
 
-        return uris;
+        return widgets;
     };
 
     noArrayGiven = function(widgets) {
@@ -72,8 +65,9 @@ AOEWidgetizer.RequestUrlBuilder = function() {
     };
 
     return {
-        getUrisForWidgets: function(widgets) {
-            if (noArrayGiven(widgets) || noHTMLElementsGiven(widgets)) {
+        addUrisToWidgets: function(widgets) {
+
+            if (noArrayGiven(widgets)) {
                 return [];
             }
 

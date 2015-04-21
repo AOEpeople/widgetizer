@@ -9,6 +9,11 @@ describe("Widget", function () {
         expect(typeof widget.get).toBe('function');
     });
 
+    it('has a constructorName that is AOEWidgetizer.Widget', function() {
+        expect(widget.constructorName).toBe('AOEWidgetizer.Widget');
+    });
+
+
     describe('set', function() {
        it('sets a property which get can retrieve', function() {
            widget.set('name', 'value');

@@ -2,8 +2,10 @@ var AOEWidgetizer = AOEWidgetizer || {};
 
 AOEWidgetizer.JSON2Markup = function() {
     return {
-        getMarkup: function(widgetJSON, template) {
-            return Mark.up(template, widgetJSON);
+        addMarkupToWidget: function(widget) {
+            widget.set('markup', Mark.up(widget.template, widget.json));
+
+            return widget;
         }
     };
 };

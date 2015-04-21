@@ -14,17 +14,22 @@ AOEWidgetizer.Widgetizer = function() {
             return;
         }
 
-        var widgets     = widgetSelect.getWidgets() || [];
-        var requestUrls = requestUrlBuilder.getUrisForWidgets(widgets) || [];
+        var widgets = [];
+
+        widgets = widgetSelect.getWidgets();
+        widgets = requestUrlBuilder.addUrisToWidgets(widgets);
 
         /* jshint ignore:start */
         // now for the async part
-        for (var i = 0; i < requestUrls; i++) {
-            xhrRequester.getWidgetJSON(requestUrl)
+        for (var i = 0; i < widgets.length; i++) {
+            var currentWidget = widgets[i];
+
+            xhrRequester.getWidgetJSON(currentWidget.endpoint)
                 .then(function(response) {
-                    var widgetJSON   = JSON.parse(response);
-                    var widgetMarkup = json2markup.getMarkup(widgetJSON, templateProvider.getTemplate());
-                    renderer.renderWidget(widgetMarkup);
+                    currentWidget.set('json', JSON.parse(response));
+                    currentWidget.set('template', templateProvider.getTemplate());
+                    currentWidget = json2markup.addMarkupToWidget(currentWidget);
+                    renderer.renderWidget(currentWidget);
                 })
                 // catch is ie8 reserved keyword, thus need array notation
                 ['catch'](function(e) {
