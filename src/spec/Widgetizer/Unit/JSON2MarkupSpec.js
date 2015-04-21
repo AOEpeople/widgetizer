@@ -61,5 +61,5 @@ describe("AOEWidgetizer.JSON2Markup", function () {
             {'data': {}}
         ]
         }};
-    })
+    });
 });

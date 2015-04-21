@@ -1,8 +1,6 @@
 var AOEWidgetizer = AOEWidgetizer || {};
 
 AOEWidgetizer.RequestUrlBuilder = function() {
-    var uris    = [];
-
     buildWidgetUris = function(widgets) {
         //@TODO: Extract to Widget class?
         function getWidgetId(currentWidget) {
@@ -47,18 +45,8 @@ AOEWidgetizer.RequestUrlBuilder = function() {
     };
 
     noArrayGiven = function(widgets) {
-        // testcase1 - console.log
         if (!widgets || widgets.constructor !== Array) {
-            console.log('Method getUrisForWidget needs array of html elements (widgets). No array given. Returning empty array.');
-            return true;
-        }
-        return false;
-    };
-
-    noHTMLElementsGiven = function(widgets) {
-        // testcase2 - console.log
-        if (widgets.length > 0 && !widgets[0].constructor.toString().match(/html/i)) {
-            console.log('Method getUrisForWidget needs array of html elements (widgets). Wrong elements given. Returning empty array.');
+            console.log('Method getUrisForWidget needs array of AOEWidgetizer.Widget elements. No array given. Returning empty array.');
             return true;
         }
         return false;

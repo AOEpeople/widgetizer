@@ -20,12 +20,13 @@ var paths = {};
     paths.orderedScriptList = [
         paths.src + '/js/Widgetizer/config.js',
         paths.src + '/js/Widgetizer/ConfigCheck.js',
+        paths.src + '/js/Widgetizer/JSON2Markup.js',
         paths.src + '/js/Widgetizer/RequestUrlBuilder.js',
+        paths.src + '/js/Widgetizer/TemplateProvider.js',
         paths.src + '/js/Widgetizer/Widget.js',
+        paths.src + '/js/Widgetizer/WidgetRenderer.js',
         paths.src + '/js/Widgetizer/WidgetSelect.js',
         paths.src + '/js/Widgetizer/XhrRequest.js',
-        paths.src + '/js/Widgetizer/JSON2Markup.js',
-        paths.src + '/js/Widgetizer/TemplateProvider.js',
         paths.src + '/js/Widgetizer.js'
     ];
 
@@ -49,6 +50,9 @@ gulp.task('js', ['jasmine', 'clean'], function() {
 // PATH=$PATH:$(pwd)/node_modules/.bin && export PATH
 gulp.task('jasmine', function() {
      return gulp.src(['src/js/**/*', 'src/spec/**/*'])
+         .pipe(jshint())
+         .pipe(jshint.reporter('jshint-stylish'))
+         .pipe(jshint.reporter('fail'))
          .pipe(addsrc.prepend(paths.orderedLibsList))
          .pipe(jasmine.specRunner({console: true}))
          .pipe(jasmine.phantomjs());

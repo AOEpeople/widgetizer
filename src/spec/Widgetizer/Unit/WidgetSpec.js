@@ -17,7 +17,7 @@ describe("Widget", function () {
     describe('set', function() {
        it('sets a property which get can retrieve', function() {
            widget.set('name', 'value');
-           expect(widget.get('name')).toBe('value')
+           expect(widget.get('name')).toBe('value');
        });
     });
 });

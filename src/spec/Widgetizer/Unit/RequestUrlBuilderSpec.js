@@ -8,7 +8,7 @@ describe("AOEWidgetizer.RequestUrlBuilder", function () {
 
     it('called without argument returns empty array and tells us on the console', function() {
         expect(requestUriBuilder.addUrisToWidgets()).toEqual([]);
-        expect(console.log).toHaveBeenCalledWith('Method getUrisForWidget needs array of html elements (widgets). No array given. Returning empty array.');
+        expect(console.log).toHaveBeenCalledWith('Method getUrisForWidget needs array of AOEWidgetizer.Widget elements. No array given. Returning empty array.');
     });
 
     describe('called with an array of two AOEWidgetizer.Widget elements', function() {

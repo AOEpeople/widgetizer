@@ -53,5 +53,5 @@ describe("AOEWidgetizer.WidgetSelect", function () {
 
     afterEach(function() {
         document.body.innerHTML = oldMarkup;
-    })
+    });
 });

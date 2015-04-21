@@ -1,26 +1,23 @@
 var AOEWidgetizer = AOEWidgetizer || {};
 
 AOEWidgetizer.Widgetizer = function() {
-    var widgetSelect        = new AOEWidgetizer.WidgetSelect();
-    var requestUrlBuilder   = new AOEWidgetizer.RequestUrlBuilder();
-    var xhrRequester        = new AOEWidgetizer.XHRRequest();
-    var json2markup         = new AOEWidgetizer.JSON2Markup();
-    var renderer            = new AOEWidgetizer.TemplateRenderer();
-    var configCheck         = new AOEWidgetizer.ConfigCheck();
-    var templateProvider    = new AOEWidgetizer.TemplateProvider();
+    var widgetSelect      = new AOEWidgetizer.WidgetSelect();
+    var requestUrlBuilder = new AOEWidgetizer.RequestUrlBuilder();
+    var xhrRequester      = new AOEWidgetizer.XHRRequest();
+    var json2markup       = new AOEWidgetizer.JSON2Markup();
+    var renderer          = new AOEWidgetizer.WidgetRenderer();
+    var configCheck       = new AOEWidgetizer.ConfigCheck();
+    var templateProvider  = new AOEWidgetizer.TemplateProvider();
 
     init = function() {
         if (!configCheck.checkConfig()) {
             return;
         }
 
-        var widgets = [];
-
-        widgets = widgetSelect.getWidgets();
-        widgets = requestUrlBuilder.addUrisToWidgets(widgets);
+        var widgets = widgetSelect.getWidgets();
+        widgets     = requestUrlBuilder.addUrisToWidgets(widgets);
 
         /* jshint ignore:start */
-        // now for the async part
         for (var i = 0; i < widgets.length; i++) {
             var currentWidget = widgets[i];
 

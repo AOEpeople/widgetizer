@@ -14,5 +14,5 @@ describe("AOEWidgetizer.XHRRequest", function () {
 
     afterEach(function() {
 
-    })
+    });
 });
