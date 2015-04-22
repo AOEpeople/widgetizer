@@ -4,7 +4,7 @@
   "description": "AOE widgetizer.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp jasmine"
   },
   "author": "Marc Dix",
   "license": "MIT",
