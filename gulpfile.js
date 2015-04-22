@@ -18,23 +18,20 @@ var paths = {};
         paths.libs + '/markup.js/src/markup.min.js'
     ];
     paths.orderedScriptList = [
-        paths.src + '/js/Widgetizer/config.js',
-        paths.src + '/js/Widgetizer/ConfigCheck.js',
-        paths.src + '/js/Widgetizer/JSON2Markup.js',
-        paths.src + '/js/Widgetizer/RequestUrlBuilder.js',
-        paths.src + '/js/Widgetizer/TemplateProvider.js',
-        paths.src + '/js/Widgetizer/Widget.js',
-        paths.src + '/js/Widgetizer/WidgetRenderer.js',
-        paths.src + '/js/Widgetizer/WidgetSelect.js',
-        paths.src + '/js/Widgetizer/XhrRequest.js',
-        paths.src + '/js/Widgetizer.js'
+        // order doesn't matter
+        paths.src + '/js/**/*.js'
     ];
 
 gulp.task('clean', function(cb) {
     del(paths.dist + '/**/*', cb);
 });
 
-gulp.task('js', ['jasmine', 'clean'], function() {
+gulp.task('copy', function() {
+    gulp.src([paths.src + '/manualtest/index.html', paths.test + '/mock/19'])
+        .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('js', ['clean', 'jasmine', 'copy'], function() {
     gulp.src(paths.orderedScriptList)
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish'))
