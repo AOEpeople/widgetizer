@@ -43,8 +43,6 @@ gulp.task('js', ['clean', 'jasmine', 'copy'], function() {
         .pipe(jsdoc(paths.doc))
 });
 
-// PHANTOMJS NEEDS TO BE IN THE $PATH, in the directory where this gulpfile is do:
-// PATH=$PATH:$(pwd)/node_modules/.bin && export PATH
 gulp.task('jasmine', function() {
      return gulp.src(['src/js/**/*', 'src/spec/**/*'])
          .pipe(jshint())
