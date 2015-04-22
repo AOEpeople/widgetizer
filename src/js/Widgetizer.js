@@ -23,7 +23,7 @@ AOEWidgetizer.Widgetizer = function() {
 
             xhrRequester.getWidgetJSON(currentWidget.endpoint)
                 .then(function(response) {
-                    currentWidget.set('json', JSON.parse(response));
+                    currentWidget.set('json', response);
                     currentWidget.set('template', templateProvider.getTemplate());
                     currentWidget = json2markup.addMarkupToWidget(currentWidget);
                     renderer.renderWidget(currentWidget);
