@@ -8,6 +8,10 @@ AOEWidgetizer.RequestUrlBuilder = function() {
             if (!isNaN(widgetId)) {
                 return widgetId;
             }
+            //@TODO: This needs to drop an error, currently it's just:
+            // Error loading widget. Original error:  SyntaxError: Unexpected token < {stack: (...), message:
+            // "Unexpected token <"}message: "Unexpected token <"stack: (...)get stack: function () { [native code] }
+            // set stack: function () { [native code] }__proto__: Error
             return '';
         }
 
