@@ -8,14 +8,15 @@ AOEWidgetizer.Widgetizer = function() {
     var renderer          = new AOEWidgetizer.WidgetRenderer();
     var configCheck       = new AOEWidgetizer.ConfigCheck();
     var templateProvider  = new AOEWidgetizer.TemplateProvider();
+    var widgets           = [];
 
     init = function() {
         if (!configCheck.checkConfig()) {
             return;
         }
 
-        var widgets = widgetSelect.getWidgets();
-        widgets     = requestUrlBuilder.addUrisToWidgets(widgets);
+        widgets = widgetSelect.getWidgets();
+        widgets = requestUrlBuilder.addUrisToWidgets(widgets);
 
         /* jshint ignore:start */
         for (var i = 0; i < widgets.length; i++) {
@@ -40,6 +41,9 @@ AOEWidgetizer.Widgetizer = function() {
     return {
         init: function() {
             init();
+        },
+        getWidgets: function() {
+            return widgets;
         }
     };
 };
