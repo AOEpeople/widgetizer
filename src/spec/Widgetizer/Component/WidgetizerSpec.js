@@ -51,13 +51,25 @@ describe("AOEWidgetizer.Widgetizer", function () {
         }, 200);
     });
 
-    it('contains a widgets property that has two items', function(done) {
-        widgetizer.init();
+    describe('contains a getWidgets method that returns', function() {
+        it('two items', function(done) {
+            widgetizer.init();
 
-        setTimeout(function() {
-            expect(widgetizer.getWidgets().length).toBe(2);
-            done();
-        }, 200);
+            setTimeout(function() {
+                expect(widgetizer.getWidgets().length).toBe(2);
+                done();
+            }, 200);
+        });
+
+        it('each from the type AOEWidgetizer.Widget', function(done) {
+            widgetizer.init();
+
+            setTimeout(function() {
+                expect(widgetizer.getWidgets()[0].constructorName).toBe('AOEWidgetizer.Widget');
+                expect(widgetizer.getWidgets()[1].constructorName).toBe('AOEWidgetizer.Widget');
+                done();
+            }, 200);
+        });
     });
 
     afterEach(function() {
