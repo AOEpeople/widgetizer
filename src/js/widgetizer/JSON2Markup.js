@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.JSON2Markup = function() {
     return {
         addMarkupToWidget: function(widget) {

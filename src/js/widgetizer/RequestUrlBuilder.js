@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.RequestUrlBuilder = function() {
     buildWidgetUris = function(widgets) {
         //@TODO: Extract to Widget class?

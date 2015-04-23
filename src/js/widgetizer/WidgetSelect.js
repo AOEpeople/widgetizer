@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.WidgetSelect = function() {
 
     var widgets = [],

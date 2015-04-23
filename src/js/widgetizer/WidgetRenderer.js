@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.WidgetRenderer = function() {
     return {
         renderWidget: function(widget) {

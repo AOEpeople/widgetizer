@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.XHRRequest = function() {
     return {
         getWidgetJSON: function(requestUri) {

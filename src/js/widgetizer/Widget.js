@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.Widget = function() {
     return {
         // module pattern just returns an anonymous object, need some way to determine

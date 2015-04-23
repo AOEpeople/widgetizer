@@ -1,5 +1,3 @@
-var AOEWidgetizer = AOEWidgetizer || {};
-
 AOEWidgetizer.ConfigCheck = function() {
     var checkConfig = function() {
         var propertyMissingTemplate = 'You have to configure the #property# in your config. Bailing out.';

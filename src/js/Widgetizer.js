@@ -1,5 +1,11 @@
 var AOEWidgetizer = AOEWidgetizer || {};
 
+if (typeof window.define === "function" && window.define.amd) {
+    define("aoewidgetizer", [], function() {
+        return AOEWidgetizer;
+    });
+}
+
 AOEWidgetizer.Widgetizer = function() {
     var widgetSelect      = new AOEWidgetizer.WidgetSelect();
     var requestUrlBuilder = new AOEWidgetizer.RequestUrlBuilder();

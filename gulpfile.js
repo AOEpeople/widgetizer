@@ -18,7 +18,8 @@ var paths = {};
         paths.libs + '/markup.js/src/markup.min.js'
     ];
     paths.orderedScriptList = [
-        // order doesn't matter
+        // Widgetizer.js has the namespace, so it should come first
+        paths.src + '/js/Widgetizer.js',
         paths.src + '/js/**/*.js'
     ];
 
