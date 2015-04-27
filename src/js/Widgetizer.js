@@ -7,7 +7,7 @@ if (typeof window.define === "function" && window.define.amd) {
 }
 
 AOEWidgetizer.Widgetizer = function() {
-    var widgetSelect      = new AOEWidgetizer.WidgetSelect();
+    var widgetSelect      = new AOEWidgetizer.WidgetSelect(AOEWidgetizer.Widget);
     var requestUrlBuilder = new AOEWidgetizer.RequestUrlBuilder();
     var xhrRequester      = new AOEWidgetizer.XHRRequest();
     var json2markup       = new AOEWidgetizer.JSON2Markup();

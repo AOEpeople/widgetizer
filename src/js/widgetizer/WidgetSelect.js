@@ -1,4 +1,4 @@
-AOEWidgetizer.WidgetSelect = function() {
+AOEWidgetizer.WidgetSelect = function(WidgetClass) {
 
     var widgets = [],
         widgetNodes;
@@ -19,7 +19,7 @@ AOEWidgetizer.WidgetSelect = function() {
 
     var pushWidgetsToArray = function() {
         for (var i = 0; i < widgetNodes.length; i++) {
-            var widget = new AOEWidgetizer.Widget();
+            var widget = new WidgetClass();
             widget.set('node', widgetNodes[i]);
             widgets.push(widget);
         }

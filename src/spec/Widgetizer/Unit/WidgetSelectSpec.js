@@ -14,7 +14,8 @@ describe("AOEWidgetizer.WidgetSelect", function () {
             widgetMarkup.replace('#id', 5) +
             widgetMarkup.replace('#id', 1);
 
-        widgetSelect = new AOEWidgetizer.WidgetSelect();
+        //@TODO: Mock AOEWidgetizer.Widget
+        widgetSelect = new AOEWidgetizer.WidgetSelect(AOEWidgetizer.Widget);
     });
 
     it('returns the widgets that are on the current page', function() {
