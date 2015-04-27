@@ -1,0 +1,18 @@
+<!doctype html>
+<head>
+</head>
+<body>
+
+<div data-sp_widget="19" data-parameters='{"page_currentproduct":"2", "page_currentcategory":"1"}' data-config='{json: "for config"}"' />
+
+<script src="widgetizer_standalone.min.js"></script>
+<script type="text/javascript">
+    // override endpoint url
+    AOEWidgetizer.config.widgetEndpoint =  'http://localhost:1234/';
+
+    // initialize widgetizer
+    var widgetizer = new AOEWidgetizer.Widgetizer();
+    widgetizer.init();
+</script>
+</body>
+</html>
