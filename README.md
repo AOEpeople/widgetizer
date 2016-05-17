@@ -1,7 +1,8 @@
-Installation
-$ npm install
-$ ./node_modules/.bin/bower update
-$ ./node_modules/.bin/gulp build
+# Widgetizer
 
-If you need the testoutput in xml format, run:
-$ ./node_modules/.bin/gulp build --ci
+````
+npm install git+https://git@github.com/AOEpeople/widgetizer.git#commonjs
+var Widgetizer = require('aoe-widgetizer');
+var widgetizer = new Widgetizer(widgetizerConfig);
+widgetizer.init(baseElement);
+```
