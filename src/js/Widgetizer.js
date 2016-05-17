@@ -1,9 +1,4 @@
 var Mark = require('markup-js');
-/* Add string pipes */
-require('./../../node_modules/markup-js/src/extras/strings')(Mark);
-/* Add array pipes */
-require('./../../node_modules/markup-js/src/extras/arrays')(Mark);
-
 var WidgetSelect = require('./Widgetizer/WidgetSelect');
 var RequestUrlBuilder = require('./Widgetizer/RequestUrlBuilder');
 var XHRRequest = require('./Widgetizer/XHRRequest');

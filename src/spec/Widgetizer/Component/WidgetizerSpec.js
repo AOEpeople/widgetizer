@@ -23,6 +23,7 @@ describe("AOEWidgetizer.Widgetizer", function () {
         widgetizerConfig.jsonpCallbackBase = 'widgetizer_spec_js_';
         /* *********************************************************************************** */
 
+        //@TODO: This line is wrong. jQuery needs to be in the widgetizerConfig
         widgetizer = new Widgetizer(widgetizerConfig, $);
         widgetDiv1 = document.createElement('div');
         widgetDiv1.setAttribute('data-sp_widget', '19');
