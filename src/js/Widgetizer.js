@@ -21,7 +21,10 @@ module.exports = function(config) {
     //TODO: This still adds jQuery, even if not used - find a better solution
     $ = (config.jQuery && config.jQuery.fn && config.jQuery.fn.jquery) ? config.jQuery : require('jquery');
 
-    //TODO: Test for missing config obj
+    config = $.extend(require('./Widgetizer/config'), config);
+
+    console.log('Running with config ', config);
+
     var utility             = new Utility(config);
     var widgetSelect        = new WidgetSelect($, config, utility, Widget);
     var requestUrlBuilder   = new RequestUrlBuilder(config, utility);
