@@ -1,5 +1,5 @@
 var WidgetFactory = require('./../WidgetFactory');
-var UserFunctions = require('../../../js/Widgetizer/UserFunctions');
+var UserFunctions = require('../../../js/components/UserFunctions');
 
 describe('AOEWidgetizer.UserFunctions', function() {
     var userFunctions;

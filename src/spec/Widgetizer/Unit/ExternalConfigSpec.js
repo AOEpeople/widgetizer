@@ -1,7 +1,7 @@
 var $                = require('jquery');
 var WidgetFactory    = require('./../WidgetFactory');
 var WidgetizerConfig = require('./../Mock/WidgetizerConfig');
-var ExternalConfig   = require('../../../js/Widgetizer/ExternalConfig');
+var ExternalConfig   = require('../../../js/components/ExternalConfig');
 
 describe('ExternalConfig', function() {
     var widget;

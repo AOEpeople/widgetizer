@@ -1,6 +1,6 @@
 var jQuery       = require('jquery');
 var WidgetMock   = require('./../Mock/WidgetMock');
-var WidgetSelect = require('../../../js/Widgetizer/WidgetSelect');
+var WidgetSelect = require('../../../js/components/WidgetSelect');
 
 describe("WidgetSelect", function () {
     var oldMarkup,

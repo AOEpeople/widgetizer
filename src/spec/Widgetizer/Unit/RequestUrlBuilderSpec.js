@@ -2,7 +2,7 @@ var WidgetFactory     = require('./../WidgetFactory');
 var WidgetizerConfig  = require('./../Mock/WidgetizerConfig');
 var WidgetMock        = require('./../Mock/WidgetMock');
 var testHelper        = require('./../testHelper');
-var RequestUrlBuilder = require('../../../js/Widgetizer/RequestUrlBuilder');
+var RequestUrlBuilder = require('../../../js/components/RequestUrlBuilder');
 
 describe("RequestUrlBuilder", function () {
     var requestUriBuilder,

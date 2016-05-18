@@ -1,4 +1,4 @@
-var Widget = require('../../../js/Widgetizer/Widget');
+var Widget = require('../../../js/components/Widget');
 
 describe("Widget", function () {
     var widget = new Widget();

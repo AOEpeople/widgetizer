@@ -1,15 +1,16 @@
 var Mark = require('markup-js');
-var WidgetSelect = require('./Widgetizer/WidgetSelect');
-var RequestUrlBuilder = require('./Widgetizer/RequestUrlBuilder');
-var XHRRequest = require('./Widgetizer/XHRRequest');
-var JSON2Markup = require('./Widgetizer/JSON2Markup');
-var WidgetRenderer = require('./Widgetizer/WidgetRenderer');
-var TemplateProvider = require('./Widgetizer/TemplateProvider');
-var Events = require('./Widgetizer/Events');
-var UserFunctions = require('./Widgetizer/UserFunctions');
-var ExternalConfig = require('./Widgetizer/ExternalConfig');
-var Widget = require('./Widgetizer/Widget');
-var Utility = require('./Widgetizer/Utility');
+var WidgetSelect = require('./components/WidgetSelect');
+var RequestUrlBuilder = require('./components/RequestUrlBuilder');
+var XHRRequest = require('./components/XHRRequest');
+var JSON2Markup = require('./components/JSON2Markup');
+var WidgetRenderer = require('./components/WidgetRenderer');
+var TemplateProvider = require('./components/TemplateProvider');
+var Events = require('./components/Events');
+var UserFunctions = require('./components/UserFunctions');
+var ExternalConfig = require('./components/ExternalConfig');
+var Widget = require('./components/Widget');
+var Utility = require('./components/Utility');
+var defaultConfig = require('./components/config');
 
 var widgetizerSingleton;
 
@@ -21,7 +22,7 @@ module.exports = function(config) {
     //TODO: This still adds jQuery, even if not used - find a better solution
     $ = (config.jQuery && config.jQuery.fn && config.jQuery.fn.jquery) ? config.jQuery : require('jquery');
 
-    config = $.extend(require('./Widgetizer/config'), config);
+    config = $.extend(defaultConfig, config);
 
     console.log('Running with config ', config);
 

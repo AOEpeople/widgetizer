@@ -1,7 +1,7 @@
 var $ = require('jquery');
 var WidgetFactory    = require('./../WidgetFactory');
 var WidgetizerConfig = require('./../Mock/WidgetizerConfig');
-var TemplateProvider = require('./../../../js/Widgetizer/TemplateProvider');
+var TemplateProvider = require('./../../../js/components/TemplateProvider');
 
 describe("TemplateProvider", function () {
     var oldMarkup;

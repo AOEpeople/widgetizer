@@ -1,6 +1,6 @@
 var WidgetFactory    = require('./../WidgetFactory');
 var WidgetizerConfig = require('./../Mock/WidgetizerConfig');
-var JSON2Markup      = require('../../../js/Widgetizer/JSON2Markup');
+var JSON2Markup      = require('../../../js/components/JSON2Markup');
 
 describe("JSON2Markup", function () {
     var json2markup,

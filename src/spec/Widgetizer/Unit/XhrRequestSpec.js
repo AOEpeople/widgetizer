@@ -1,6 +1,6 @@
 var jQuery     = require('jquery');
 var testHelper = require('./../testHelper');
-var XHRRequest = require('./../../../js/Widgetizer/XhrRequest');
+var XHRRequest = require('./../../../js/components/XhrRequest');
 
 describe("XHRRequest", function () {
     var xhrRequester;

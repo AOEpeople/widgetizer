@@ -1,5 +1,5 @@
 var jQuery = require('jquery');
-var Events = require('../../../js/Widgetizer/Events');
+var Events = require('../../../js/components/Events');
 
 describe("Events", function () {
     var event;

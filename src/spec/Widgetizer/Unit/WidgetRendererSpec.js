@@ -1,6 +1,6 @@
 var WidgetFactory  = require('./../WidgetFactory');
 var WidgetizerConfig = require('./../Mock/WidgetizerConfig');
-var WidgetRenderer = require('./../../../js/Widgetizer/WidgetRenderer');
+var WidgetRenderer = require('./../../../js/components/WidgetRenderer');
 
 describe("WidgetRenderer", function () {
     var renderer,
