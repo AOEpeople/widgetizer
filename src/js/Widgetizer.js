@@ -1,7 +1,7 @@
 var Mark = require('markup-js');
 var WidgetSelect = require('./components/WidgetSelect');
 var RequestUrlBuilder = require('./components/RequestUrlBuilder');
-var XHRRequest = require('./components/XHRRequest');
+var XHRRequest = require('./components/XhrRequest');
 var JSON2Markup = require('./components/JSON2Markup');
 var WidgetRenderer = require('./components/WidgetRenderer');
 var TemplateProvider = require('./components/TemplateProvider');
@@ -9,7 +9,7 @@ var Events = require('./components/Events');
 var UserFunctions = require('./components/UserFunctions');
 var ExternalConfig = require('./components/ExternalConfig');
 var Widget = require('./components/Widget');
-var Utility = require('./components/Utility');
+var Utility = require('./components/utility');
 var defaultConfig = require('./components/config');
 
 var widgetizerSingleton;
